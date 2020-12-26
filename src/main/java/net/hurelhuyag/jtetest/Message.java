@@ -31,28 +31,3 @@ public class Message{
     }
 }
 
-@ComponentScan("net.hurelhuyag.jtetest")
-@EnableWebMvc
-@Controller
-class Config implements WebMvcConfigurer {
-
-    @Bean
-    TemplateEngine templateEngine(ServletContext context) throws MalformedURLException, URISyntaxException {
-        var root = context.getResource("/WEB-INF/views/").toURI();
-        var codeResolver = new DirectoryCodeResolver(Path.of(root));
-        return TemplateEngine.create(codeResolver, Path.of("/tmp/demo-jte-classes"), ContentType.Html);
-    }
-
-    @Bean
-    ViewResolver viewResolver(TemplateEngine templateEngine){
-        return (viewName, locale) -> (model, request, response) -> {
-            templateEngine.render(viewName+".jte", (Map<String, Object>) model, new PrintWriterOutput(response.getWriter()));
-        };
-    }
-
-    @GetMapping({"/"})
-    String index(ModelMap model){
-        model.put("message", new Message("Hello World"));
-        return "index";
-    }
-}

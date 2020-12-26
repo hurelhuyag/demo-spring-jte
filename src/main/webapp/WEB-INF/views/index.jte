@@ -1,7 +1,6 @@
 @import net.hurelhuyag.jtetest.Message
 
 @param Message message
-@param Message.Inner inner
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +10,6 @@
 </head>
 <body>
     ${message.getText()}
-    ${inner.demo}
 </body>
 </html>
 
