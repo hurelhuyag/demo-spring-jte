@@ -25,7 +25,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
 
-        <jte.version>1.5.0</jte.version>
+        <jte.version>1.11.0</jte.version>
     </properties>
 
     <build>

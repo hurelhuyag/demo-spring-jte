@@ -26,7 +26,7 @@ class Config implements WebMvcConfigurer {
     TemplateEngine templateEngine(ServletContext context) throws MalformedURLException, URISyntaxException {
         var root = context.getResource("/WEB-INF/views/").toURI();
         var codeResolver = new DirectoryCodeResolver(Path.of(root));
-        return TemplateEngine.create(codeResolver, Path.of("/tmp/demo-jte-classes"), ContentType.Html);
+        return TemplateEngine.create(codeResolver, Path.of("/WEB-INF/classes/"), ContentType.Html, this.getClass().getClassLoader());
     }
 
     @Bean
