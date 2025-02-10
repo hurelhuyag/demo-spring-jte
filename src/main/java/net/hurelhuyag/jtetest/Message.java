@@ -4,7 +4,7 @@ import gg.jte.ContentType;
 import gg.jte.TemplateEngine;
 import gg.jte.output.PrintWriterOutput;
 import gg.jte.resolve.DirectoryCodeResolver;
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
