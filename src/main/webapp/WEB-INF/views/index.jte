@@ -9,7 +9,6 @@
     <title>Title</title>
 </head>
 <body>
-    ${message.getText()}
+    ${message.text()}
 </body>
 </html>
-

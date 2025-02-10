@@ -6,7 +6,6 @@ import gg.jte.output.PrintWriterOutput;
 import gg.jte.resolve.DirectoryCodeResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -19,7 +18,6 @@ import java.util.Map;
 
 @ComponentScan("net.hurelhuyag.jtetest")
 @EnableWebMvc
-@Controller
 class Config implements WebMvcConfigurer {
 
     @Bean
@@ -32,6 +30,7 @@ class Config implements WebMvcConfigurer {
     @Bean
     ViewResolver viewResolver(TemplateEngine templateEngine) {
         return (viewName, locale) -> (model, request, response) -> {
+            //noinspection unchecked
             templateEngine.render(viewName + ".jte", (Map<String, Object>) model, new PrintWriterOutput(response.getWriter()));
         };
     }
