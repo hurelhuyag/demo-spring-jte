@@ -31,6 +31,7 @@ class Config implements WebMvcConfigurer {
     ViewResolver viewResolver(TemplateEngine templateEngine) {
         return (viewName, locale) -> (model, request, response) -> {
             //noinspection unchecked
+            response.setContentType("text/html; charset=UTF-8");
             templateEngine.render(viewName + ".jte", (Map<String, Object>) model, new PrintWriterOutput(response.getWriter()));
         };
     }
